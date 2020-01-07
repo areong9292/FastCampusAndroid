@@ -2,7 +2,7 @@ package com.example.java;
 
 public class VariableAndType {
 
-    public static void main(String[] args) {
+    public static void main1(String[] args) {
         short number1;
         int number2;
         long number3;
