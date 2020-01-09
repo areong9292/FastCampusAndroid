@@ -15,7 +15,7 @@ public class Method {
         result = a + b;
     }
 
-    public static void main2(String[] args)
+    public static void main1(String[] args)
     {
         Method calc = new Method();
         

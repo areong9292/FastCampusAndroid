@@ -1,7 +1,7 @@
 package com.example.java;
 
 public class Operator {
-    public static void main(String[] args)
+    public static void main1(String[] args)
     {
         int a;
         a = 10 % 2;
