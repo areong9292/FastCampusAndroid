@@ -1,7 +1,7 @@
 package com.example.java;
 
 public class Switch {
-    public static void main(String[] args)
+    public static void main1(String[] args)
     {
         int money = 10000;
         switch (money)
