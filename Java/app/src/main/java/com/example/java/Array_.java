@@ -3,7 +3,7 @@ package com.example.java;
 import java.util.ArrayList;
 
 public class Array_ {
-    public static void main(String[] args)
+    public static void main1(String[] args)
     {
         // reference 만 가능
         // int x, Integer o
