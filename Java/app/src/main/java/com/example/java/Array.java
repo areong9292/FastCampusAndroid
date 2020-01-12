@@ -1,7 +1,7 @@
 package com.example.java;
 
 public class Array {
-    public static void main(String[] args)
+    public static void main1(String[] args)
     {
         // 명시적으로 배열의 크기 지정
         boolean[] booleans = new boolean[4];
