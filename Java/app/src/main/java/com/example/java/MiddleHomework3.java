@@ -3,7 +3,7 @@ package com.example.java;
 import java.util.ArrayList;
 
 public class MiddleHomework3 {
-    public static void main(String[] args)
+    public static void main1(String[] args)
     {
         ArrayList<Integer> first = new ArrayList<Integer>();
         ArrayList<Integer> second = new ArrayList<Integer>();
