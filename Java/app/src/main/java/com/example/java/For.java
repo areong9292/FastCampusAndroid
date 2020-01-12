@@ -1,7 +1,7 @@
 package com.example.java;
 
 public class For {
-    public static void main(String[] args)
+    public static void main1(String[] args)
     {
         /*for (int i = 0; i < 10; i++)
         {
