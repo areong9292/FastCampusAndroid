@@ -1,7 +1,7 @@
 package com.example.java;
 
 public class Calculator_Use {
-    public static void main(String[] args)
+    public static void main1(String[] args)
     {
         Calculator calculator = new Calculator(10);
         calculator.add(3);
