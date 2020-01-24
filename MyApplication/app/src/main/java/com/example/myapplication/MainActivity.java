@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,6 +11,8 @@ import android.os.PersistableBundle;
 import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
+
+    int REQUEST_CODE = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +29,40 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("INTENT_KEY", 5);
 
         intent.putExtra("INTENT_KEY_STRING", "STRING");
-        // startActivity(intent); - 암시적 때문에 주석함
+
+        // 이렇게 하면 SecondActivity로 부터 result를 받을 수 있다
+        startActivityForResult(intent, REQUEST_CODE);
 
         /// 암시적 인텐트
-        Intent intent1 = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/"));
-        startActivity(intent1);
+        // 인터넷 켤 수 있는 임의의 앱한테 보낸다
+        // Intent intent1 = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/"));
+        // startActivity(intent1);
+    }
+
+    // startActivityForResult로 결과값을 받기 위해선
+    // 아래 메소드를 오버라이드 해야한다
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        // SecondActivity에서 요청한 RESULT_CODE가 맞는지 체크
+        // 내가 보낸 intent에 대한 값이 맞는지 체크
+        if(requestCode == REQUEST_CODE)
+        {
+            // 그 결과 코드가 200인 경우
+            // 결과 값에 대한 액티비티 간의 약속
+            if(resultCode == 200)
+            {
+                // 값 String 가져온다
+                String result = data.getStringExtra("RESULT");
+
+                Log.d("onActivityResult", "result : " + result);
+            }
+
+            // 300인 경우
+            else if(resultCode == 300)
+            {
+                Log.d("onActivityResult", "result : " + "실패");
+            }
+        }
     }
 
     @Override

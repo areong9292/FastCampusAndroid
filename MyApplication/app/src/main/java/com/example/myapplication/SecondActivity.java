@@ -14,19 +14,31 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
 
         // 호출한 곳에서 보낸 데이터를 받는다
-        Intent intent = getIntent();
+        // Intent intent = getIntent();
 
         // 보낸 타입을 보고 맞는 메소드, 자료형 쓰면 됨
         // String data = intent.getStringExtra("INTENT_KEY");
 
         // int형은 이런 식으로 하면 INTENT_KEY를 int로 가져오는데 실패하면 0으로 가져올 수 있게 지정 가능
-        int data = intent.getIntExtra("INTENT_KEY", 0);
+        // int data = intent.getIntExtra("INTENT_KEY", 0);
 
         // string은 그런 거 없다
-        String stringData = intent.getStringExtra("INTENT_KEY_STRING");
+        // String stringData = intent.getStringExtra("INTENT_KEY_STRING");
 
-        Log.d("intent_key", "" + data);
-        Log.d("intent_key_string", "" + stringData);
+        // Log.d("intent_key", "" + data);
+        // Log.d("intent_key_string", "" + stringData);
+
+        // 작업 완료 후 MainActivity로 결과 값을 보낸다
+        Intent intent = new Intent();
+        intent.putExtra("RESULT", "성공");
+
+        // setResult - 결과로 값을 보낸다
+        // 그러면 Intent 받는 곳의 onActivityResult가 실행됨
+        setResult(300, intent);
+
+        // 액티비티 강제 종료
+        // 호출했던 액티비티로 돌아감
+        finish();
     }
 
     @Override
