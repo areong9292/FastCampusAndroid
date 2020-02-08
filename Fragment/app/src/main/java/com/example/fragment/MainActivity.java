@@ -5,10 +5,13 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
     FragmentManager fragmentManager;
+    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,5 +32,18 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.add(R.id.container, new FragmentOne()); // 작업 1
         fragmentTransaction.commit(); // 확인
 
+        // fragmentTransaction은 commit 후 재사용 불가
+
+        // 버튼 이벤트 등록
+        button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener(){
+            // 버튼 클릭 시 fragmentone을 two로 교체한다
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.container, new FragmentTwo());
+                fragmentTransaction.commit();
+            }
+        });
     }
 }
