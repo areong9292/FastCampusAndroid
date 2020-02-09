@@ -13,6 +13,9 @@ public class MainActivity extends AppCompatActivity {
     FragmentManager fragmentManager;
     Button button;
 
+    // 이렇게 Activity에서 Fragment를 등록하는 방법은
+    // Fragment를 동적으로 사용하고자 할 때 좋다
+    // Fragment를 붙혔다가 특정 조건 시 교체, 사라지게 하는 등의 작업
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
