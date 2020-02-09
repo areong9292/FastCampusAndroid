@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import static com.example.fragment.MainActivity.BUNDLE_KEY;
+
 // Fragment 클래스를 상속받아 이 클래스를 Fragment로 사용한다
 public class FragmentOne extends Fragment {
 
@@ -35,6 +37,11 @@ public class FragmentOne extends Fragment {
     // 여기가 액티비티가 생성되어있는 것을 보장하기 때문
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+
+        // MainActivity에서 보낸 bundle의 값을 가져온다
+        int number = getArguments().getInt(BUNDLE_KEY);
+        Log.d("test", "number : " + number);
+
         Button button = view.findViewById(R.id.fragment_one_button);
         button.setOnClickListener(new View.OnClickListener(){
             @Override
