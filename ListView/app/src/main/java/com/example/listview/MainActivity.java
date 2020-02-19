@@ -37,6 +37,15 @@ public class MainActivity extends AppCompatActivity {
         list.add("가");
         list.add("가");
 
+        // Header, Footer view 사용할 때 내용물이 꼭 있어야 붙는다
+        // Header, Footer 가져오기
+        LayoutInflater layoutInflater = LayoutInflater.from(this);
+        View header = layoutInflater.inflate(R.layout.haeder_view,null,false);
+        View footer = layoutInflater.inflate(R.layout.footer_view,null,false);
+
+        listView.addHeaderView(header);
+        listView.addFooterView(footer);
+
         // 어답터 연결
         MyAdapter myAdapter = new MyAdapter(MainActivity.this, list);
         listView.setAdapter(myAdapter);
