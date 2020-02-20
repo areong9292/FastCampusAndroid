@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    ArrayList<String> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,9 +24,9 @@ public class MainActivity extends AppCompatActivity {
 
         ListView listView = findViewById(R.id.list_view);
 
-        ArrayList<String> list = new ArrayList<>();
+        list = new ArrayList<>();
         list.add("가");
-        list.add("가");
+        list.add("나");
         list.add("가");
         list.add("가");
         list.add("가");
@@ -47,8 +48,20 @@ public class MainActivity extends AppCompatActivity {
         listView.addFooterView(footer);
 
         // 어답터 연결
-        MyAdapter myAdapter = new MyAdapter(MainActivity.this, list);
+        final MyAdapter myAdapter = new MyAdapter(MainActivity.this, list);
         listView.setAdapter(myAdapter);
+
+        // 헤더 클릭 시 2번째 요소 변경
+        header.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                list.set(1, "가");
+
+                // 어답터가 바라보는 리스트 값이 변경되면 갱신한다
+                myAdapter.notifyDataSetChanged();
+            }
+        });
+
     }
 
     class MyAdapter extends BaseAdapter
